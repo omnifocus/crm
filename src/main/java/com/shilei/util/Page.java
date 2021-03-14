@@ -1,5 +1,8 @@
 package com.shilei.util;
 
+import com.shilei.bean.Customer;
+import com.sun.rowset.internal.Row;
+
 import java.util.List;
 
 public class Page<T> {
@@ -11,6 +14,14 @@ public class Page<T> {
     private int size;
     /*对象列表*/
     private List<T> rows;
+
+    public Page(int page, int total, int size, List<T> rows) {
+       this.page = page;
+       this.total = total;
+       this.size = size;
+       this.rows = rows;
+    }
+
 
     public int getPage() {
         return page;
@@ -42,5 +53,15 @@ public class Page<T> {
 
     public void setRows(List<T> rows) {
         this.rows = rows;
+    }
+
+    @Override
+    public String toString() {
+        return "Page{" +
+                "page=" + page +
+                ", total=" + total +
+                ", size=" + size +
+                ", rows=" + rows +
+                '}';
     }
 }
